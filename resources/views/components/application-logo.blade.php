@@ -1,0 +1,1 @@
+<img src="{{asset('img/winx-logo.png')}}" style="height: 50px;">
