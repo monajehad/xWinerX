@@ -100,6 +100,18 @@ class GenerateMenus
                             ->link->attr([
                                 'class' => 'nav-link',
                             ]);
+                            $menu->add('<i class="nav-icon fa-solid fa-sitemap"></i> '.__('Billing details '), [
+                                'route' => 'billing-detail',
+                                'class' => 'nav-item',
+                            ])
+                                ->data([
+                                    'order' => 83,
+                                    'activematches' => ['Campaigns*'],
+                                    // 'permission' => ['ads'],
+                                ])
+                                ->link->attr([
+                                    'class' => 'nav-link',
+                                ]);
                 //   dd(auth()->user()->id);
                     if (auth()->check()) {
                         $menu->add(['<i class="nav-icon fa-solid fa-sitemap"></i> '.__('My Account' ),

@@ -21,7 +21,11 @@ class PaymentController extends Controller
         $this->lahzaApiService = $lahzaApiService;
     }
 
+    public function showBillingDetails( )
+    {
 
+        return view('backend.payment.billing-details');
+    }
     public function showPaymentInterface( $campaignId)
     {
 

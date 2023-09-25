@@ -234,4 +234,5 @@ Route::get('/payment/{campaignId}', [PaymentController::class, 'showPaymentInter
 Route::post('/process-card-payment', [PaymentController::class, 'processCardPayment'])->name('process-card-payment');
 Route::post('/process-usdt-payment', [PaymentController::class, 'processUsdtPayment'])->name('process-usdt-payment');
 
+Route::get('/BillingDetails', [PaymentController::class, 'showBillingDetails'])->name('billing-detail');
 

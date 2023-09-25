@@ -13,7 +13,7 @@
 
     ?>
     <label for="amount">Amount</label>
-    <input type="text" disabled id="amount" value="{{$campaign->price}}" />
+    <input type="text" disabled id="amount" value="{{$campaign->price +($campaign->price*0.20)}}" />
   </div>
   <div class="form-submit">
     <button type="submit" onclick="pay()"> Pay </button>
