@@ -64,48 +64,50 @@ class PaymentController extends Controller
     public function processusdtpayment(Request $request)
     {
     // Get user and payment method information from the request
-    $user = Auth::user(); // Assuming you're using Laravel's authentication
-    $paymentMethodId = $request->input('payment_method_id'); // Assuming you have a select dropdown for payment methods
-    $amount = 100; // Replace with the actual amount
+    // $user = Auth::user(); // Assuming you're using Laravel's authentication
+    // $paymentMethodId = $request->input('payment_method_id'); // Assuming you have a select dropdown for payment methods
+    // $amount = 100; // Replace with the actual amount
     
-    // Fetch payment method details from the database
-    $paymentMethod = PaymentMethod::find($paymentMethodId);
+    // // Fetch payment method details from the database
+    // $paymentMethod = PaymentMethod::find($paymentMethodId);
     
-    if (!$paymentMethod || $paymentMethod->method_type !== 'usdt') {
-        return response()->json(['error' => 'Invalid payment method'], 400);
-    }
+    // if (!$paymentMethod || $paymentMethod->method_type !== 'usdt') {
+    //     return response()->json(['error' => 'Invalid payment method'], 400);
+    // }
 
-    // Implement the logic to initiate the USDT payment via the Lahza API
-    $client = new Client();
-    $response = $client->post('https://api.lahza.io/usdt/payment', [
-        'headers' => [
-            'Authorization' => 'Bearer ' . $user->lahza_access_token, // Assuming you have an access token for Lahza
-            'Content-Type' => 'application/json',
-        ],
-        'json' => [
-            'amount' => $amount,
-            'usdt_address' => $paymentMethod->usdt_address,
-            // Add other required parameters as per Lahza API documentation
-        ],
-    ]);
+    // // Implement the logic to initiate the USDT payment via the Lahza API
+    // $client = new Client();
+    // $response = $client->post('https://api.lahza.io/usdt/payment', [
+    //     'headers' => [
+    //         'Authorization' => 'Bearer ' . $user->lahza_access_token, // Assuming you have an access token for Lahza
+    //         'Content-Type' => 'application/json',
+    //     ],
+    //     'json' => [
+    //         'amount' => $amount,
+    //         'usdt_address' => $paymentMethod->usdt_address,
+    //         // Add other required parameters as per Lahza API documentation
+    //     ],
+    // ]);
 
-    // Process the response from the API
-    $responseBody = json_decode($response->getBody(), true);
+    // // Process the response from the API
+    // $responseBody = json_decode($response->getBody(), true);
 
-    if ($responseBody['status'] === 'success') {
-        // Save transaction details to your database
-        Transaction::create([
-            'user_id' => $user->id,
-            'amount' => $amount,
-            'currency' => 'USDT',
-            // 'payment_method' => 'usdt',
-            // Add other relevant fields
-        ]);
+    // if ($responseBody['status'] === 'success') {
+    //     // Save transaction details to your database
+    //     Transaction::create([
+    //         'user_id' => $user->id,
+    //         'amount' => $amount,
+    //         'currency' => 'USDT',
+    //         // 'payment_method' => 'usdt',
+    //         // Add other relevant fields
+    //     ]);
 
-        return response()->json(['message' => 'Payment successful']);
-    } else {
-        return response()->json(['error' => 'Payment failed'], 500);
-    }
+    //     return response()->json(['message' => 'Payment successful']);
+    // } else {
+    //     return response()->json(['error' => 'Payment failed'], 500);
+    // }
+    return view('backend.payment.payment-usdt');
+
 }
 
     public function createPaymentPage(Request $request)
