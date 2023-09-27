@@ -49,12 +49,12 @@
     @include('backend.includes.sidebar')
     <!-- /Sidebar -->
 
-    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <div class="wrapper d-flex flex-column min-vh-100 " style="background: #FAFAFA">
         <!-- Header -->
         @include('backend.includes.header')
         <!-- /Header -->
 
-        <div class="body flex-grow-1">
+        <div class="body flex-grow-1" >
             <div class="container-lg">
 
                 @include('flash::message')

@@ -15,6 +15,11 @@
     <label for="amount">Amount</label>
     <input type="text" disabled id="amount" value="{{$campaign->price +($campaign->price*0.20)}}" />
   </div>
+  <div class="form-group">
+   
+    <label for="amount">Card type</label>
+    <input type="text" disabled id="card_type" value="mastercard" />
+  </div>
   <div class="form-submit">
     <button type="submit" onclick="pay()"> Pay </button>
   </div>
@@ -66,6 +71,7 @@
           lahza.newTransaction({
               key: 'pk_test_alM69Plu0E0GxVvV3lTKalALxZ5uJycoO',
               email: document.getElementById("email").value,
+              card_type: document.getElementById("card_type").value,
               currency:"USD",
               amount: document.getElementById("amount").value * 100,
               onSuccess: (transaction) => {

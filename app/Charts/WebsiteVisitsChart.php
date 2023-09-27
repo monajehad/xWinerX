@@ -52,8 +52,8 @@ class WebsiteVisitsChart extends Chart
                     [
                         'ticks' => [
                             'beginAtZero' => true, // Start at 0
-                            'stepSize' => 20,     // Tick interval
-                            'max' => 100,         // Maximum tick value
+                            'stepSize' => 1000,     // Tick interval
+                            'max' => 20000,         // Maximum tick value
                             
                         ],
                     ],

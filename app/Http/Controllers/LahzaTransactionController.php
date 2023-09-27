@@ -6,7 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Services\LahzaApiService;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class LahzaTransactionController extends Controller
 {
@@ -58,20 +59,56 @@ public function verifyTransaction($reference)
 
 public function listTransactions(Request $request)
 {
-    // Get query parameters from the request
-    $perPage = $request->input('perPage', 50);
-    $page = $request->input('page', 1);
-    $customer = $request->input('customer');
-    $status = $request->input('status');
-    $from = $request->input('from');
-    $to = $request->input('to');
-    $amount = $request->input('amount');
+    // $apiKey = 'pk_test_alM69Plu0E0GxVvV3lTKalALxZ5uJycoO';
+    //     $apiSecret = 'sk_test_2i9pABVUbABBCn28192Q5e91mVrRtGoRP';
+        
+    $apiKey = config('pk_test_alM69Plu0E0GxVvV3lTKalALxZ5uJycoO'); // Retrieve API key from configuration
+    $apiSecret = config('sk_test_2i9pABVUbABBCn28192Q5e91mVrRtGoRP'); // Retrieve API secret from configuration
 
-    // Call the Lahza API to list transactions
-    $response = $this->LahzaApiService->listTransactions($perPage, $page, $customer, $status, $from, $to, $amount);
+    // $client = new Client();
+     // Check if the user is logged in
+     if (Auth::check()) {
+        $user = Auth::user(); // Get the authenticated user
+        $userEmail = $user->email; // Get the user's email
+    } else {
+        // User is not logged in, handle as needed
+        return redirect()->route('login'); // Redirect to the login page or show an error message
+    }
+    $queryParams = [
+        'perPage' => $request->input('perPage', 50), // Default to 50 records per page
+        'page' => $request->input('page', 1), // Default to the first page
+        'status' => $request->input('status'), // Filter by status if provided
+        'from' => $request->input('from'), // Start date filter if provided
+        'to' => $request->input('to'), // End date filter if provided
+        'amount' => $request->input('amount'), // Amount filter if provided
+    ];
+    // $response = $client->get('https://api.lahza.io/transaction', [
+    //     'headers' => [
+    //         'Authorization' => 'Bearer pk_test_alM69Plu0E0GxVvV3lTKalALxZ5uJycoO', // Replace with your actual secret key
+    //     ],
+    //     'query' => $queryParams,
+    // ]);
+  
+    $response = Http::withBasicAuth($apiKey, $apiSecret)
+    ->get('https://api.lahza.io/transaction',[ 'query' => $queryParams]);
 
-    // Process the response and return data
-    $transactions = $response->json();
+      // Check if the request was successful
+      if ($response->getStatusCode() == 200) {
+        $transactionData = json_decode($response->getBody());
+
+        // Extract and display the list of transactions
+        $filteredTransactions = $transactionData->data;
+
+            // Filter transactions where the customer's email matches the user's email
+            $transactions = collect($filteredTransactions)->filter(function ($transaction) use ($userEmail) {
+                return $transaction->customer->email === $userEmail;
+            });
+        return view('backend.payment.billing-details', [
+            'transactions' => $transactions,
+        ]);
+    } else {
+        return 'Transaction listing failed.';
+    }
 
     // return view('transactions.index', ['transactions' => $transactions]);
 }

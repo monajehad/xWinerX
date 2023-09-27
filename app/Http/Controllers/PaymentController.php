@@ -23,8 +23,9 @@ class PaymentController extends Controller
 
     public function showBillingDetails( )
     {
-
-        return view('backend.payment.billing-details');
+        $user = Auth::user(); // Get the currently authenticated user
+        $cards = PaymentMethod::where('user_id', $user->id)->get();
+            return view('backend.payment.billing-details',compact('cards','user'));
     }
     public function showPaymentInterface( $campaignId)
     {

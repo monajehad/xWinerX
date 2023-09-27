@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PaymentMethod extends Model
+
+class BillingAddress extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'user_id',
-        'method_type',
-        'card_last_four', // Only for card payments
-        'usdt_address',   // Only for USDT payments
-        'card_type',
-        'card_number'
-        // Add other columns as needed
+        'city',
+        'street	',
+        'postal_code',
+        'country',
+        'mobile_number',
     ];
 
+    // Define the relationship to the User model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-}
+    }}

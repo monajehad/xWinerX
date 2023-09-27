@@ -7,6 +7,10 @@ use App\Http\Controllers\Backend\CampaignFeatureController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\SubscriptionController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\BillingAddressController;
+
+
 use App\Http\Controllers\LahzaTransactionController;
 use App\Http\Controllers\WinnerController;
 use Laravel\Fortify\Fortify;
@@ -236,3 +240,31 @@ Route::get('/process-usdt-payment', [PaymentController::class, 'processUsdtPayme
 
 Route::get('/BillingDetails', [PaymentController::class, 'showBillingDetails'])->name('billing-detail');
 
+
+//method card 
+// Add Card (GET and POST)
+Route::get('/cards/create',[CardController::class, 'create'] )->name('cards.create');
+Route::post('/cards',[CardController::class, 'store'] )->name('cards.store');
+
+// Edit Card (GET and POST)
+Route::get('/cards/{id}/edit', [CardController::class, 'edit'])->name('cards.edit');
+Route::put('/cards/{id}',[CardController::class, 'update'] )->name('cards.update');
+
+// Delete Card (DELETE)
+Route::delete('/cards/{id}',[CardController::class, 'destroy'] )->name('cards.destroy');
+
+//billing addresss
+// Show a form to add a new billing address
+Route::get('/billing-addresses/create',[BillingAddressController::class, 'create'] )->name('billing-addresses.create');
+
+// Store a new billing address
+Route::post('/billing-addresses',[BillingAddressController::class, 'store'] )->name('billing-addresses.store');
+
+// Show a form to edit an existing billing address
+Route::get('/billing-addresses/{billingAddress}/edit', [BillingAddressController::class, 'edit'] )->name('billing-addresses.edit');
+
+// Update an existing billing address
+Route::put('/billing-addresses/{billingAddress}', [BillingAddressController::class, 'update'] )->name('billing-addresses.update');
+
+// Delete a billing address
+Route::delete('/billing-addresses/{billingAddress}',[BillingAddressController::class, 'destroy'])->name('billing-addresses.destroy');

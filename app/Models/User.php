@@ -90,7 +90,11 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     {
         return $this->hasMany(Winner::class);
     }
-
+// User.php (User model)
+public function billingAddresses()
+{
+    return $this->hasMany(BillingAddress::class);
+}
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
