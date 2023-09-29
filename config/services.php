@@ -48,5 +48,10 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT'),
     ],
+    'lahza' => [
+        'api_key' => env('LAHZA_API_KEY'),
+        'api_secret' => env('LAHZA_API_SECRET'),
+    ],
+    
 
 ];
