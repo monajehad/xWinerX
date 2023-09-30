@@ -18,7 +18,8 @@
             <label for="card_last_four">Last Four Digits</label>
             <input type="text" class="form-control" id="card_last_four" name="card_last_four" required>
         </div> --}}
-        <button type="submit" class="btn btn-primary mt-3">Add Card</button>
+        <button type="submit"  style="background: var(--transparent-primary-16, rgba(0, 171, 85, 0.16));
+        color:#007B55" class="btn  mt-3">Add Card</button>
     </form>
 </div>
 @endsection

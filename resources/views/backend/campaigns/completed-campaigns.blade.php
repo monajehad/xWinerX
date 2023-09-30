@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">
+    <div class="card-body" style="padding-left: 30px;
+    padding-right: 100px;
+    margin-bottom: 150px;
+}">
 <div class="row pt-4 pb-4">
     
 <div class="col-md-10">
@@ -27,7 +30,7 @@
                 <td class="th">Remaining participants</td>
                 <td class="th">Amount Paid</td>
                 <td class="th">Status</td>
-                <td class="th">Actions</td>
+                {{-- <td class="th">Actions</td> --}}
             
             </tr>
             @forelse ($completedCampaigns as $campaign)
@@ -53,7 +56,7 @@
                     @endif 
                     </td>
                    
-                    <td>
+                    {{-- <td>
                         @can('view_campaigns')
                         <a href="{{ route('campaigns.show', $campaign) }}" class="btn  btn-sm">
                             <i class="fa-regular fa-eye"></i>
@@ -79,7 +82,7 @@
                             </button>
                         </form>
                         @endcan
-                    </td>
+                    </td> --}}
                    
                 </tr>
                 @empty

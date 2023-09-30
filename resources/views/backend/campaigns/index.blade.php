@@ -1,8 +1,11 @@
 @extends('backend.layouts.app')
 
 @section('content')
-<div class="card">
-    <div class="card-body">
+<div class="card" >
+    <div class="card-body" style="padding-left: 30px;
+    padding-right: 100px;
+    margin-bottom: 150px;
+}" >
 <div class="row pt-4 pb-4 ">
     
 <div class="col-md-10">

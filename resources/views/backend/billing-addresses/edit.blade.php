@@ -302,7 +302,8 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+        <button type="submit"  style="background: var(--transparent-primary-16, rgba(0, 171, 85, 0.16));
+        color:#007B55" class="btn  mt-3">Save Changes</button>
     </form>
 </div>
 @endsection

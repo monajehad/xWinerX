@@ -1,9 +1,14 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <h1>Create Campaign</h1>
+<div class="card col-8" style="padding-left: 16px padding-top:25px; padding-bottom:50px">
+   
+    <div class="card-body ">
+        <div class="card-title mb-4">
 
-    <form action="{{ route('campaigns.store') }}" method="POST" enctype="multipart/form-data">
+            <h4>Create Campaign</h4>
+            </div>
+    <form action="{{ route('campaigns.store') }}" class="col-10" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="image">Image</label>
@@ -40,10 +45,11 @@
             <label for="close_campaign_after">Close Campaign After</label>
             <input type="date" class="form-control" id="close_campaign_after" name="close_campaign_after" required>
         </div> --}}
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" style="background: var(--transparent-primary-16, rgba(0, 171, 85, 0.16));
+        color:#007B55"  class="btn  mt-3">Create</button>
     </form>
-
-
+    </div>
+</div>
      {{-- <!-- Add Campaign Feature -->
      <h3>Add Campaign Feature</h3>
      <form action="{{ route('campaigns.features.store', $campaign) }}" method="POST" enctype="multipart/form-data">
