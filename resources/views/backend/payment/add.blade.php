@@ -3,8 +3,16 @@
 
 @section('content')
 <div class="container">
-    <h4>Add a New Card</h4>
-    <form method="POST" class="col-6"{{ route('cards.store') }}>
+    <div class="card col-8" style="padding-left: 16px padding-top:25px; padding-bottom:50px">
+        <div class="card-body ">
+
+    <div class="d-flex  justify-content-between">
+    <h3>Add a New Card</h3>
+    <div>
+        <a href="{{ route('billing-detail') }}" class="btn text-primary" style="    background: var(--transparent-primary-8, rgba(0, 125, 254, 0.08));"> Back</a>
+        </div>
+    </div>
+    <form method="POST" class="col-10"{{ route('cards.store') }}>
         @csrf
         <div class="form-group">
             <label for="card_type">Card Type</label>
@@ -19,7 +27,9 @@
             <input type="text" class="form-control" id="card_last_four" name="card_last_four" required>
         </div> --}}
         <button type="submit"  style="background: var(--transparent-primary-16, rgba(0, 171, 85, 0.16));
-        color:#007B55" class="btn  mt-3">Add Card</button>
+        color:#007B55 " class="btn mb-5 mt-4">Add Card</button>
     </form>
+        </div>
+</div>
 </div>
 @endsection

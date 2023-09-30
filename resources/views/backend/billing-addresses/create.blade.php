@@ -3,8 +3,16 @@
 
 @section('content')
 <div class="container">
-    <h4>Add New Billing Address</h4>
-    <form method="POST" class="col-6" action="{{ route('billing-addresses.store') }}">
+    <div class="card col-8" style="padding-left: 16px padding-top:25px; padding-bottom:50px">
+        <div class="card-body  " style="padding-left: 16px">
+    <div class="d-flex  justify-content-between">
+    <h3>Add New Billing Address</h3>
+    <div>
+        <a href="{{ route('billing-detail') }}" class="btn text-primary" style="    background: var(--transparent-primary-8, rgba(0, 125, 254, 0.08));"> Back</a>
+        </div>
+    </div>
+
+    <form method="POST" class="col-10" action="{{ route('billing-addresses.store') }}">
         @csrf
 
         <!-- User ID (Assuming it's a hidden field) -->
@@ -287,7 +295,9 @@
         </div>
 
         <button type="submit"  style="background: var(--transparent-primary-16, rgba(0, 171, 85, 0.16));
-        color:#007B55" class="btn  mt-3 ">Add Billing Address</button>
+        color:#007B55" class="btn  mt-4 mb-5 ">Add Billing Address</button>
     </form>
+</div>
+    </div>
 </div>
 @endsection

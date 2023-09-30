@@ -4,9 +4,12 @@
 <div class="card col-8" style="padding-left: 16px padding-top:25px; padding-bottom:50px">
    
     <div class="card-body ">
-        <div class="card-title mb-4">
+        <div class="card-title mb-4 d-flex  justify-content-between">
 
-            <h4>Create Campaign</h4>
+            <h3>Create Campaign</h3>
+            <div>
+                <a href="{{ route('campaigns.index') }}" class="btn text-primary" style="    background: var(--transparent-primary-8, rgba(0, 125, 254, 0.08));"> Back</a>
+                </div>
             </div>
     <form action="{{ route('campaigns.store') }}" class="col-10" method="POST" enctype="multipart/form-data">
         @csrf
@@ -46,7 +49,7 @@
             <input type="date" class="form-control" id="close_campaign_after" name="close_campaign_after" required>
         </div> --}}
         <button type="submit" style="background: var(--transparent-primary-16, rgba(0, 171, 85, 0.16));
-        color:#007B55"  class="btn  mt-3">Create</button>
+        color:#007B55"  class="btn  mt-4 mb-5">Create</button>
     </form>
     </div>
 </div>
