@@ -163,14 +163,14 @@
       <div class="card shadow-sm">
 
         <div class="card-body">
-          @foreach($transactions as $transaction)
+          {{-- @foreach($transactions as $transaction)
           <li>
               Transaction ID: {{ $transaction['id'] }}<br>
               Amount: {{ $transaction['amount'] }}<br>
               Status: {{ $transaction['status'] }}<br>
               <!-- Add more transaction details as needed -->
           </li>
-      @endforeach
+      @endforeach --}}
           {{-- <div class="container">
             <h1>List of Transactions</h1>
     

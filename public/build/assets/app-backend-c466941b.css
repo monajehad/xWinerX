@@ -15237,7 +15237,7 @@ html:not([dir="rtl"]) .sidebar-close {
     flex: 1;
     align-items: center;
     padding: var(--cui-sidebar-nav-link-padding-y) var(--cui-sidebar-nav-link-padding-x);
-    color: var(--cui-sidebar-nav-link-color);
+    color: var(--text-light-secondary, #637381);
     text-decoration: none;
     white-space: nowrap;
     background: var(--cui-sidebar-nav-link-bg);
@@ -15251,12 +15251,13 @@ html:not([dir="rtl"]) .sidebar-close {
     }
 }
 .sidebar-nav .nav-link.active {
-    color: var(--cui-sidebar-nav-link-active-color);
-    background: var(--cui-sidebar-nav-link-active-bg);
-    font-weight: 600;
+    color:#007DFE;
+    background: var(--transparent-primary-8, rgba(0, 125, 254, 0.08));
+        font-weight: 600;
+        border-radius:8px;
 }
 .sidebar-nav .nav-link.active .nav-icon {
-    color: var(--cui-sidebar-nav-link-active-icon-color);
+    color:#007DFE;
 }
 .sidebar-nav .nav-link.disabled {
     color: var(--cui-sidebar-nav-link-disabled-color);
@@ -15280,7 +15281,9 @@ html:not([dir="rtl"]) .sidebar-close {
     .sidebar-nav .nav-link:hover {
         color: var(--cui-sidebar-nav-link-hover-color);
         text-decoration: none;
-        background: var(--cui-sidebar-nav-link-hover-bg);
+        background: var(--transparent-primary-8, rgba(0, 125, 254, 0.08));
+        border-radius: 8px;
+
     }
     .sidebar-nav .nav-link:hover .nav-icon {
         color: var(--cui-sidebar-nav-link-hover-icon-color);
@@ -15293,7 +15296,7 @@ html:not([dir="rtl"]) .sidebar-close {
     flex: 0 0 var(--cui-sidebar-nav-icon-width);
     height: var(--cui-sidebar-nav-icon-height);
     font-size: var(--cui-sidebar-nav-icon-font-size);
-    color: var(--cui-sidebar-nav-link-icon-color);
+    color: var(--text-light-secondary, #637381);
     text-align: center;
     pointer-events: none;
     fill: currentcolor;
@@ -15336,10 +15339,10 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
     display: none;
 }
 .sidebar-nav .nav-group.show {
-    background: var(--cui-sidebar-nav-group-bg);
+    background: var(--transparent-primary-8, rgba(0, 125, 254, 0.08));
 }
 .sidebar-nav .nav-group.show .nav-group-toggle {
-    color: var(--cui-sidebar-nav-group-toggle-show-color);
+    color:#007DFE;
 }
 .sidebar-nav .nav-group.show > .nav-group-toggle:after {
     transform: rotate(180deg);

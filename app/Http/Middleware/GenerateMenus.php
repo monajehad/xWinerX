@@ -16,7 +16,7 @@ class GenerateMenus
     {
         \Menu::make('admin_sidebar', function ($menu) {
             // Dashboard
-            $menu->add('<i class="nav-icon fa-solid fa-cubes"></i> '.__('Overview'), [
+            $menu->add('<i class="nav-icon fa-solid fa-gauge-simple-high"></i> '.__('Overview'), [
                 'route' => 'backend.dashboard',
                 'class' => 'nav-item',
             ])
