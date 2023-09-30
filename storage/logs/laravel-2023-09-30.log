@@ -1065,3 +1065,5 @@
 [2023-09-30 17:23:37] local.DEBUG: User Login Success. Name: General User | Id: 5 | Email: user@user.com | Username: 100005 IP:127.0.0.1 | UpdateProfileLoginData  
 [2023-09-30 17:29:24] local.DEBUG: User Login Success. Name: Admin Account | Id: 2 | Email: admin@admin.com | Username: 100002 IP:127.0.0.1 | UpdateProfileLoginData  
 [2023-09-30 17:43:12] local.INFO: 'Users List' viewed by User:Admin Account(ID:2)  
+[2023-09-30 19:42:07] local.INFO: 'Users List' viewed by User:Admin Account(ID:2)  
+[2023-09-30 19:42:16] local.INFO: Notifications List | User:Admin Account(ID:2)  
